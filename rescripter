@@ -71,6 +71,7 @@ k = 0
 for i in range(len(line)):
     if line[i]>='а' and line[i]<='я':
         k+=1
+print(k)
 for i in range(len(line)):
     if line[i]>='а' and line[i]<='я' and line[i] in R:
         R[line[i]]+=1
@@ -84,12 +85,31 @@ i=0
 for key in D.keys():
     d[i] = D[key]
     i+=1
+d=sorted(d)
 i=0
 for key in R.keys():
     r[i] = R[key]
     i+=1
-print(sorted(d))
-print(sorted(r))
-print(R.keys())
-
-
+r=sorted(r)
+for j in range(len(d)):
+    for key in D.keys():
+        if D[key] == d[j]:
+            l = key
+            z = r[j]
+            for meow in R.keys():
+                if R[meow] ==z:
+                    f = meow
+            keytable[l] = f
+translate=''
+for i in range(len(line)):
+    if line[i] in keytable:
+        translate+=keytable[line[i]]
+    else:
+        translate+=line[i]
+print(D)
+print(d)
+print(R)
+print(r)
+print(keytable)
+print(translate)
+                
